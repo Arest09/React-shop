@@ -53,7 +53,10 @@ export function Shop(params) {
           }
         }
         else{
-          return item
+          return {
+            ...orderItem,
+            quantity:orderItem.quantity,
+          }
         }
         
       })
