@@ -5,11 +5,21 @@ import { useState, useEffect } from "react";
 import { Preloader } from "./Preloader";
 import { GoodsList } from "./Goods";
 import { Cart } from "./Cart";
+import { BasketList } from "./BasketList";
 
 export function Shop(params) {
   const [goods, setGoods] = useState([]);
   const [loading, setLoading] = useState(true);
   const [order, setOrder] = useState([]);
+  const [isBasketShow,setBasketShow] = useState(false);
+
+
+
+  const handleBasketShow = ()=>{
+    setBasketShow(!isBasketShow)
+  }
+
+
 
   useEffect(function fetchGoods() {
     fetch(API_URL, {
@@ -66,7 +76,8 @@ export function Shop(params) {
 
   return (
     <main className="shop container">
-      <Cart quantity={order.length} />
+      <Cart quantity={order.length} handleBasketShow={handleBasketShow} isBasketShow = {isBasketShow}/>
+      {isBasketShow && <BasketList order={order}/>}  
       {loading ? <Preloader /> : <GoodsList goods={goods} GetItem={GetItem} />}
     </main>
   );

@@ -8,8 +8,8 @@ export function GoodsList(props) {
   }
   return (
     <div className="goods">
-      {goods.map((good) => {
-        return <Item {...good} GetItem = {GetItem} key={good.offerId} />;
+      {goods.map((goods) => {
+        return <Item {...goods} GetItem = {GetItem} key={goods.offerId} />;
       })}
     </div>
   );

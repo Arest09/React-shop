@@ -1,0 +1,33 @@
+.collection {
+    position: fixed;
+    z-index: 5;
+    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 500px;
+    max-height: 500px;
+    overflow: scroll;
+    overflow-x:hidden;
+    -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+}
+
+
+.collection__info {
+    text-align: center;
+    background-color: #fff;
+}
+
+.collection-item__info {
+    font-weight: 700;
+}
+
+.collection-item__content {
+    font-weight: normal;
+}
+
+.collection-item__delete {
+    display: flex;
+    justify-content: flex-end;
+}

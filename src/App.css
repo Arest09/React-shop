@@ -1,17 +1,23 @@
-.item{
+.preloader-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+.item {
     max-width: 700px;
     display: flex;
     justify-content: center;
 }
 
-.goods{
+.goods {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 400px));
     justify-content: center;
     padding: 100px 0 100px;
 }
 
-.card{
+.card {
     max-width: 80%;
     position: relative;
     display: flex;
@@ -20,11 +26,11 @@
     justify-content: center;
 }
 
-.card .card-action{
+.card .card-action {
     position: unset;
 }
 
-.card-content{
+.card-content {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -33,7 +39,7 @@
     text-align: center;
 }
 
-.price{
+.price {
     padding-top: 10px;
     font-size: 1em;
     font-weight: 500;

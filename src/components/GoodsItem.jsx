@@ -12,13 +12,14 @@ export function Item(props) {
   const [img] = displayAssets;
   const { background } = img;
 
- function handleCart(displayName) {
-
-  GetItem(displayName)
+ function handleCart(goodsItem) {
+  GetItem(goodsItem)
  } 
 
+
+
   return (
-    <div className="row item">
+    <div  className="row item">
       <div className="card">
         <div className="card-image">
           <img src={background} alt={displayName} />
@@ -29,8 +30,8 @@ export function Item(props) {
           <div className="price right">{regularPrice} рублей</div>
         </div>
         <div class="card-action">
-            <button onClick={()=>{handleCart({displayName,background,regularPrice,id})}} className="btn">купить</button>
-          </div>
+            <button  onClick={(e)=>{handleCart({displayName,background,regularPrice,id})}} className="btn">купить</button>
+        </div>
       </div>
     </div>
   );
