@@ -1,4 +1,5 @@
 import "./App.css";
+import "./reset.css";
 
 import { Header } from "./components/Header";
 import { Shop } from "./components/Shop";

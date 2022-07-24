@@ -11,7 +11,7 @@ export function Cart(props) {
         <i class="small  material-icons cart__show">add_shopping_cart</i>
       )}
 
-      {quantity ? <span className="cart-quantity">{quantity}</span> : quantity}
+      { <div className="cart__quantity">{quantity}</div> }
     </div>
   );
 }

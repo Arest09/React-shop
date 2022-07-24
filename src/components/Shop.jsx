@@ -42,16 +42,12 @@ export function Shop(params) {
         return item.id === orderItem.id;
         
     });
-    console.log(ItemIndex)
     if (ItemIndex < 0) {
       const newItem = {
         ...item,
         quantity: 1,
-      };
-
-      console.log(newItem)
-      
-      
+      };      
+    
       setOrder([...order, newItem]);
     }
     else{
@@ -74,10 +70,19 @@ export function Shop(params) {
     }
   }
 
+  function deleteItem(id) {
+    let newOrder = [];
+  newOrder = order.filter((orderItem)=>{
+    return orderItem.id != id;
+   })
+
+   setOrder(newOrder);
+  }
+
   return (
     <main className="shop container">
       <Cart quantity={order.length} handleBasketShow={handleBasketShow} isBasketShow = {isBasketShow}/>
-      {isBasketShow && <BasketList order={order}/>}  
+      {isBasketShow && <BasketList order={order} deleteItem={deleteItem}/>}  
       {loading ? <Preloader /> : <GoodsList goods={goods} GetItem={GetItem} />}
     </main>
   );

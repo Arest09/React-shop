@@ -1,7 +1,12 @@
 import '../basket.css'
 
 export function BasketItem(props) {
-  const { displayName, quantity, regularPrice } = props;
+  const { displayName, quantity, regularPrice ,deleteItem,id} = props;
+
+ const handleDelete = (id)=>{
+
+    deleteItem(id);
+ }
 
   return (
     <li class="collection-item">
@@ -14,7 +19,9 @@ export function BasketItem(props) {
       <div className="collection-item__info">
         Цена: <span className="collection-item__content">{regularPrice}</span>
       </div>
-      <span className="collection-item__delete material-icons">delete</span>
+      <span className="collection-item__delete material-icons" onClick={()=>{handleDelete(id)}}>delete</span>
+      <div className='collection-item__line'></div>
+      {quantity * regularPrice} рублей
     </li>
   );
 }
