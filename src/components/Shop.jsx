@@ -79,10 +79,27 @@ export function Shop(params) {
    setOrder(newOrder);
   }
 
+  function changeQuantity(newQuantity,id) {
+  const  newOrder = order.map((orderItem)=>{
+      if(orderItem.id === id ){
+        return{...orderItem,
+            quantity:newQuantity > 0 ? newQuantity : 0,
+        }
+      }
+      else{
+        return{
+          ...orderItem,
+          quantity:orderItem.quantity,
+        }
+      }
+    })
+    setOrder(newOrder);
+  }
+
   return (
     <main className="shop container">
       <Cart quantity={order.length} handleBasketShow={handleBasketShow} isBasketShow = {isBasketShow}/>
-      {isBasketShow && <BasketList order={order} deleteItem={deleteItem}/>}  
+      {isBasketShow && <BasketList order={order} deleteItem={deleteItem} changeQuantity={changeQuantity}/>}  
       {loading ? <Preloader /> : <GoodsList goods={goods} GetItem={GetItem} />}
     </main>
   );

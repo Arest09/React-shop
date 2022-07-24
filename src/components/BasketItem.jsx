@@ -1,11 +1,20 @@
+import { useRef } from 'react';
 import '../basket.css'
 
 export function BasketItem(props) {
-  const { displayName, quantity, regularPrice ,deleteItem,id} = props;
+  const { displayName, quantity, regularPrice ,deleteItem,id,changeQuantity} = props;
+
+ const inputRef = useRef();
 
  const handleDelete = (id)=>{
 
     deleteItem(id);
+ }
+
+ const handleChangeQuantity = (count,id)=>{
+ 
+
+  changeQuantity(count,id);
  }
 
   return (
@@ -14,7 +23,7 @@ export function BasketItem(props) {
       Название: <span className="collection-item__content">{displayName}</span>
       </div>
       <div className="collection-item__info">
-        Количество: <span className="collection-item__content">{quantity}</span>
+        Количество:  <input placeholder='Введите кол-во' ref = {inputRef} onChange={()=>{handleChangeQuantity(inputRef.current.value,id)}}  type="number" />{quantity}
       </div>
       <div className="collection-item__info">
         Цена: <span className="collection-item__content">{regularPrice}</span>

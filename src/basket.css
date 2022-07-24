@@ -12,7 +12,7 @@
     -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
     -moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
     box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
-    animation: show 1s ease-in-out;
+    animation: show 0.3s ease-in-out;
 }
 
 .collection__info {
@@ -22,6 +22,7 @@
 
 .collection-item__info {
     font-weight: 700;
+    margin-bottom: 10px;
 }
 
 .collection-item__line{
@@ -31,7 +32,7 @@
 .collection-item__line::after{
     content: "";
     position: absolute;
-    top: -20px;
+    top:0;
     left: 0;
     width: 50%;
     height: 1px;
@@ -43,9 +44,9 @@
 }
 
 .collection-item__delete {
-    display: flex;
-    justify-content: flex-end;
-    cursor: pointer;
+   position: absolute;
+   right:0;
+   cursor: pointer;
 }
 
 @keyframes show {
