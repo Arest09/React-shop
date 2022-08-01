@@ -1,7 +1,9 @@
-
+import { ShopContext } from "./context";
+import { useContext } from "react";
 
 
 export function Item(props) {
+  const {GetItem} = useContext(ShopContext)
   const {
     displayName,
     price: { regularPrice },
@@ -10,7 +12,7 @@ export function Item(props) {
     offerId:id,
   } = props;
   
-  const{GetItem} = props;
+
 
   const [img] = displayAssets;
   const { background } = img;

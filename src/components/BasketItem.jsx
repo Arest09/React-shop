@@ -1,8 +1,11 @@
-import { useRef } from 'react';
+import { useRef,useContext } from 'react';
+import { ShopContext } from './context';
 import '../basket.css'
 
+
 export function BasketItem(props) {
-  const { displayName, quantity, regularPrice ,deleteItem,id,changeQuantity} = props;
+  const { displayName, quantity, regularPrice,id} = props;
+  const {deleteItem,changeQuantity} = useContext(ShopContext);
 
  const inputRef = useRef();
 

@@ -1,5 +1,6 @@
 import { API_KEY, API_URL } from "../config";
-
+import { ShopContext } from "./context";//import Context
+import reducer from "./reducer";
 import React from "react";
 import { useState, useEffect } from "react";
 import { Preloader } from "./Preloader";
@@ -104,11 +105,16 @@ export function Shop(params) {
     setAlertName('');
   }
   return (
-    <main className="shop container">
+
+<ShopContext.Provider value = {{deleteItem,changeQuantity,GetItem}}>
+   <main className="shop container">
+    <div>hi</div>
       <Cart quantity={order.length} handleBasketShow={handleBasketShow} isBasketShow = {isBasketShow}/>
-      {isBasketShow && <BasketList order={order} deleteItem={deleteItem} changeQuantity={changeQuantity}/>}  
-      {loading ? <Preloader /> : <GoodsList goods={goods} GetItem={GetItem} />}
+      {isBasketShow && <BasketList order={order} />}  
+      {loading ? <Preloader /> : <GoodsList goods={goods} />}
       {alertName && <Alert name ={alertName} closeAlert={closeAlert}/>}
     </main>
+  </ShopContext.Provider>
+
   );
 }

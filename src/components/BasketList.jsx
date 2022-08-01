@@ -3,7 +3,7 @@ import "../basket.css";
 import { useRef } from "react";
 
 export function BasketList(props) {
-  const { order = [], deleteItem ,changeQuantity} = props;
+  const { order = []} = props;
 
   let totalPrice = useRef(0);
  
@@ -18,7 +18,7 @@ export function BasketList(props) {
 
       {order.length ? (
         order.map((itemOrder) => {
-          return <BasketItem {...itemOrder} deleteItem={deleteItem} changeQuantity = {changeQuantity}  key={itemOrder.id} />;
+          return <BasketItem {...itemOrder}   key={itemOrder.id} />;
         })
       ) : (
         <div className="collection__info">ваша корзина пуста</div>
