@@ -6,12 +6,14 @@ import { Preloader } from "./Preloader";
 import { GoodsList } from "./Goods";
 import { Cart } from "./Cart";
 import { BasketList } from "./BasketList";
+import { Alert } from "./Alert";
 
 export function Shop(params) {
   const [goods, setGoods] = useState([]);
   const [loading, setLoading] = useState(true);
   const [order, setOrder] = useState([]);
   const [isBasketShow,setBasketShow] = useState(false);
+  const [alertName,setAlertName] = useState('');
 
 
 
@@ -24,7 +26,7 @@ export function Shop(params) {
   useEffect(function fetchGoods() {
     fetch(API_URL, {
       headers: {
-        Authorization: `b35796fd-16c7ee01-dfb9819a-947519ee`,
+        Authorization: API_KEY,
       },
       method: "GET",
     })
@@ -39,6 +41,7 @@ export function Shop(params) {
 
   function GetItem(item) {
     const ItemIndex = order.findIndex((orderItem) => {
+      
         return item.id === orderItem.id;
         
     });
@@ -68,12 +71,13 @@ export function Shop(params) {
       })
       setOrder(newOrder)
     }
+    setAlertName(item.displayName)
   }
 
   function deleteItem(id) {
     let newOrder = [];
   newOrder = order.filter((orderItem)=>{
-    return orderItem.id != id;
+    return orderItem.id !== id;
    })
 
    setOrder(newOrder);
@@ -96,11 +100,15 @@ export function Shop(params) {
     setOrder(newOrder);
   }
 
+  const closeAlert = ()=>{
+    setAlertName('');
+  }
   return (
     <main className="shop container">
       <Cart quantity={order.length} handleBasketShow={handleBasketShow} isBasketShow = {isBasketShow}/>
       {isBasketShow && <BasketList order={order} deleteItem={deleteItem} changeQuantity={changeQuantity}/>}  
       {loading ? <Preloader /> : <GoodsList goods={goods} GetItem={GetItem} />}
+      {alertName && <Alert name ={alertName} closeAlert={closeAlert}/>}
     </main>
   );
 }

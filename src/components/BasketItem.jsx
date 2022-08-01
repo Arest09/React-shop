@@ -12,9 +12,9 @@ export function BasketItem(props) {
  }
 
  const handleChangeQuantity = (count,id)=>{
+  
+  if(count>0){ changeQuantity(count,id)}
  
-
-  changeQuantity(count,id);
  }
 
   return (
@@ -23,7 +23,7 @@ export function BasketItem(props) {
       Название: <span className="collection-item__content">{displayName}</span>
       </div>
       <div className="collection-item__info">
-        Количество:  <input placeholder='Введите кол-во' ref = {inputRef} onChange={()=>{handleChangeQuantity(inputRef.current.value,id)}}  type="number" />{quantity}
+        Количество:  <input placeholder='Введите кол-во' ref = {inputRef}  onChange={()=>{handleChangeQuantity(inputRef.current.value,id)}}  type="number"  min="1" step="1"/>{quantity}
       </div>
       <div className="collection-item__info">
         Цена: <span className="collection-item__content">{regularPrice}</span>

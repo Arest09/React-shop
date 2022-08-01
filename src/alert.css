@@ -1,0 +1,22 @@
+@media(max-width:950px){
+    #toast-container{
+        top:10% !important;
+    }
+}
+
+#toast-container{
+animation: fade-in 1s;
+animation-fill-mode:forwards;
+animation-direction: alternate;
+}
+
+@keyframes fade-in {
+    0%{
+        opacity: 0;
+    }
+
+    100%{
+        opacity: 1;
+    }
+   
+}
