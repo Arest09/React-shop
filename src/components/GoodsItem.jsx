@@ -1,5 +1,5 @@
-
-
+import { ShopContext } from "../context";
+import { useContext } from "react";
 
 export function Item(props) {
   const {
@@ -9,8 +9,15 @@ export function Item(props) {
     displayDescription,
     offerId:id,
   } = props;
+
   
-  const{GetItem} = props;
+ const {GetItem} = useContext(ShopContext); 
+/*  const {GetItem} = props;  */
+ 
+
+
+
+
 
   const [img] = displayAssets;
   const { background } = img;
