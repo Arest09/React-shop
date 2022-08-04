@@ -1,7 +1,11 @@
 import {useEffect } from "react";
 import '../alert.css'
+
+import { useContext } from "react";
+import { ShopContext } from "../context";
+
 export function Alert(props) {
-  const {name,closeAlert} = props;
+  const {name,closeAlert} = useContext(ShopContext);
 
   useEffect(()=>{
   
