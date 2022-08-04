@@ -56,7 +56,7 @@ export function reducer(state, action) {
         }
     }
     case "CHANGE_QUANTITY":
-    console.log(state.order)
+    console.log(state)
       return {
         ...state,
           order: state.order.map((orderItem)=>{
@@ -72,10 +72,7 @@ export function reducer(state, action) {
             }
           }
         })
-    /*     return{
-          ...state,
-          order:newO
-        } */
+
       }
 
     case "SET_GOODS":
@@ -88,11 +85,6 @@ export function reducer(state, action) {
   return state;
   }
 }
-
-/* function changeQuantity(newQuantity,id) {
- 
-  } */
-
 
 
                    
